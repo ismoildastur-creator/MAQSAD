@@ -3,3 +3,7 @@ android/.gradle/
 android/build/
 android/app/build/
 .DS_Store
+www/supabase-config.js
+.env
+.env.*
+!.env.example
