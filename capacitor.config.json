@@ -1,6 +1,6 @@
 {
-  "appId": "uz.maqsad.app",
-  "appName": "MAQSAD",
+  "appId": "uz.maqsad.app.redesign",
+  "appName": "MAQSAD Yangi",
   "webDir": "www",
   "bundledWebRuntime": false,
   "server": {
