@@ -20,6 +20,35 @@
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:60;background:#17264e;border:1px solid #465b92;color:white;padding:11px 16px;border-radius:12px;box-shadow:var(--shadow);font-size:12px;display:none;max-width:90%;text-align:center}
 @media(max-width:860px){.app-shell{padding:12px 12px 92px}.app-layout{grid-template-columns:1fr}.sidebar{display:none}.main-panel{padding:19px 16px 24px;min-height:74vh}.bottom-nav{display:flex;position:fixed;z-index:30;left:0;right:0;bottom:0;padding:7px 4px calc(7px + env(safe-area-inset-bottom));background:#080f2af5;border-top:1px solid #2d3c6e;justify-content:space-around;backdrop-filter:blur(15px)}.bottom-nav .nav-btn{display:grid;justify-items:center;gap:1px;padding:6px 7px;min-width:55px;font-size:9px;text-align:center}.bottom-nav .nav-icon{font-size:18px}.topbar{margin-bottom:12px}.stats-grid{gap:8px}.tile{padding:12px}.tile strong{font-size:21px}.home-overview{grid-template-columns:1fr 1fr}.goal-ring-card{display:grid;justify-items:center;text-align:center;gap:10px}.progress-ring{width:100px;height:100px}.progress-ring:before{inset:8px}.ring-inner b{font-size:22px}.streak-stack{width:100%;grid-template-columns:1fr 1fr}.mini-stat{justify-content:center;padding:7px 5px}.mini-stat span:first-child{font-size:15px}.mini-stat b{font-size:13px}.mini-stat small{font-size:9px}.profile-card{grid-template-columns:1fr}.page-heading h1{font-size:23px}}
 @media(max-width:540px){.app-shell{padding:9px 9px 92px}.brand{font-size:19px}.brand-icon{width:30px;height:30px}.mode-chip{font-size:9px;padding:7px 9px}.user-chip{padding:5px 8px;font-size:11px}.main-panel{border-radius:19px;padding:17px 13px 25px}.page-heading h1{font-size:22px}.stats-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.tile small{font-size:9px}.tile strong{font-size:20px}.home-overview{gap:8px;grid-template-columns:1fr 1fr}.goal-ring-card{padding:11px 7px}.streak-stack{gap:5px}.mini-stat{gap:4px}.mini-stat span:first-child{display:none}.focus-banner{padding:14px}.focus-banner b{font-size:14px}.focus-banner .banner-icon{width:38px;height:38px}.goal-entry{display:grid}.goal-entry .primary-btn{width:100%}.goal-grid,.resource-grid,.stats-hero{grid-template-columns:1fr}.goal-grid .goal-card{min-height:auto}.resource-card p{min-height:0}.timer-ring{width:220px;height:220px}.timer-inner strong{font-size:40px}.detail-hero h1{font-size:19px}.bottom-nav .nav-btn{min-width:0;flex:1;padding:6px 2px}.guest-note{padding:10px}.section-row h2{font-size:14px}}
+
+/* Reference-inspired mobile visual refinement */
+:root{--bg:#070b22;--panel:#101936;--panel2:#18234b;--line:#2d3b70;--purple:#7542ff;--purple2:#a66bff;--cyan:#20d6df}
+body{background:radial-gradient(ellipse at 50% -12%,#293b91 0,#0b1438 42%,#060a1e 100%)}
+.app-shell{max-width:1180px;padding:18px 20px 34px}
+.brand{font-size:25px}.brand-icon{width:42px;height:42px;border-radius:15px}
+.sidebar,.main-panel{background:linear-gradient(160deg,#111b3cfa,#0a122df5);border-color:#33447c;box-shadow:0 18px 52px #020719aa}
+.sidebar{padding:20px;min-height:780px}.main-panel{min-height:780px;padding:28px}
+.nav-btn{padding:13px 14px;border-radius:15px;font-size:14px}
+.page-heading h1{font-size:30px}
+.tile,.card{border-radius:20px;padding:19px;background:linear-gradient(145deg,#1b2855,#101a38);border-color:#334579}
+.tile strong{font-size:29px}.goal-ring-card{min-height:205px;padding:22px}
+.progress-ring{width:146px;height:146px;flex-basis:146px;box-shadow:0 0 28px #18d6de22}
+.ring-inner b{font-size:30px}.mini-stat{padding:12px 14px;border-radius:15px}
+.focus-banner{padding:20px 22px;border-radius:20px;min-height:94px}
+.focus-banner b{font-size:18px}.focus-banner .banner-icon{width:52px;height:52px}
+.section-row h2{font-size:19px}.goal-prompt{padding:21px}.goal-prompt h2{font-size:23px}
+.text-input,.select-input{padding:15px 16px}.primary-btn{padding:16px 22px}
+.goal-card{padding:16px;border-radius:18px;min-height:88px}
+.goal-symbol{width:54px;height:54px;flex-basis:54px;border-radius:17px;font-size:25px}
+.goal-card-main b{font-size:15px}.bar{height:8px}
+.resource-card{padding:17px;border-radius:19px;background:linear-gradient(145deg,#1b2855,#101a38);border-color:#35477b}
+.resource-icon{width:48px;height:48px;border-radius:15px;font-size:23px}
+.resource-card h3{font-size:16px}.resource-card p{font-size:12px;line-height:1.55}
+.resource-actions a,.resource-actions button{font-size:11px;padding:10px 13px;border-radius:11px}
+.timer-ring{width:270px;height:270px}.timer-inner strong{font-size:52px}
+@media(max-width:860px){.app-shell{padding:10px 10px 100px}.main-panel{min-height:calc(100dvh - 155px);padding:22px 18px 26px;border-radius:23px}.page-heading h1{font-size:27px}.stats-grid{gap:10px}.tile{padding:15px}.tile strong{font-size:25px}.home-overview{grid-template-columns:1.05fr .95fr;gap:10px}.goal-ring-card{min-height:190px;padding:13px 9px}.progress-ring{width:116px;height:116px;flex-basis:116px}.ring-inner b{font-size:26px}.mini-stat{padding:9px 8px}.bottom-nav{padding:8px 5px;background:#080e29f5;border-top:1px solid #334477;box-shadow:0 -12px 35px #030718aa}.bottom-nav .nav-btn{min-width:0;flex:1;padding:7px 2px;gap:3px;font-size:10px}.resource-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.app-shell{padding:8px 8px 94px}.main-panel{padding:19px 14px 24px;border-radius:21px}.page-heading h1{font-size:25px}.stats-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.tile{padding:12px 9px;border-radius:16px}.tile small{font-size:9px}.tile strong{font-size:21px}.home-overview{grid-template-columns:1fr 1fr;gap:7px}.goal-ring-card{min-height:165px;padding:10px 5px;gap:8px}.progress-ring{width:98px;height:98px;flex-basis:98px}.ring-inner b{font-size:22px}.ring-inner small{font-size:9px}.streak-stack{grid-template-columns:1fr;gap:5px}.mini-stat{justify-content:flex-start;padding:7px 8px;gap:7px}.mini-stat span:first-child{display:grid;font-size:15px}.mini-stat b{font-size:13px}.focus-banner{padding:13px 12px;min-height:76px}.focus-banner b{font-size:13px}.focus-banner small{font-size:10px}.goal-prompt{padding:16px}.goal-prompt h2{font-size:20px}.goal-card{padding:12px 10px;gap:9px;min-height:78px}.goal-symbol{width:43px;height:43px;flex-basis:43px;font-size:20px}.goal-card-main b{font-size:12px}.goal-percent{font-size:11px}.goal-card .btn-sm{padding:8px 9px;font-size:10px}.goal-grid,.resource-grid,.stats-hero{grid-template-columns:1fr}.resource-card{padding:15px}.resource-card p{min-height:0}.timer-ring{width:224px;height:224px}.timer-inner strong{font-size:42px}.bottom-nav .nav-btn{font-size:9px}}
+
 </style>
 </head>
 <body>
