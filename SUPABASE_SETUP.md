@@ -26,3 +26,6 @@ Secrets qo‘shilmagan bo‘lsa, APK baribir yig‘iladi, lekin faqat mahalliy r
 ## 4. Hozirgi bulut sinxronizatsiyasi
 
 Ushbu versiya email/parol orqali ro‘yxatdan o‘tish va kirishni, shuningdek boshlang‘ich maqsadlar, kundalik checklist vazifalari hamda kunlik XP/vazifa statistikasini sinxronlashni qo‘llaydi. Demo kurslar/kitoblar va fokus sessiyalari tarixi hozircha bulutga ulanmagan.
+## 5. Tekshirish
+
+Ikkala GitHub Actions Secret qo‘shilgandan keyin yangi APK build ishga tushiring. Workflow logidagi `Generate Supabase client configuration` qadamida `Supabase client configuration generated.` yozuvi chiqishi kerak. Agar `local-only mode` yozuvi chiqsa, secret nomlari yoki qiymatlari to‘g‘ri qo‘shilmagan.
