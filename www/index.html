@@ -49,6 +49,24 @@ body{background:radial-gradient(ellipse at 50% -12%,#293b91 0,#0b1438 42%,#060a1
 @media(max-width:860px){.app-shell{padding:10px 10px 100px}.main-panel{min-height:calc(100dvh - 155px);padding:22px 18px 26px;border-radius:23px}.page-heading h1{font-size:27px}.stats-grid{gap:10px}.tile{padding:15px}.tile strong{font-size:25px}.home-overview{grid-template-columns:1.05fr .95fr;gap:10px}.goal-ring-card{min-height:190px;padding:13px 9px}.progress-ring{width:116px;height:116px;flex-basis:116px}.ring-inner b{font-size:26px}.mini-stat{padding:9px 8px}.bottom-nav{padding:8px 5px;background:#080e29f5;border-top:1px solid #334477;box-shadow:0 -12px 35px #030718aa}.bottom-nav .nav-btn{min-width:0;flex:1;padding:7px 2px;gap:3px;font-size:10px}.resource-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:540px){.app-shell{padding:8px 8px 94px}.main-panel{padding:19px 14px 24px;border-radius:21px}.page-heading h1{font-size:25px}.stats-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.tile{padding:12px 9px;border-radius:16px}.tile small{font-size:9px}.tile strong{font-size:21px}.home-overview{grid-template-columns:1fr 1fr;gap:7px}.goal-ring-card{min-height:165px;padding:10px 5px;gap:8px}.progress-ring{width:98px;height:98px;flex-basis:98px}.ring-inner b{font-size:22px}.ring-inner small{font-size:9px}.streak-stack{grid-template-columns:1fr;gap:5px}.mini-stat{justify-content:flex-start;padding:7px 8px;gap:7px}.mini-stat span:first-child{display:grid;font-size:15px}.mini-stat b{font-size:13px}.focus-banner{padding:13px 12px;min-height:76px}.focus-banner b{font-size:13px}.focus-banner small{font-size:10px}.goal-prompt{padding:16px}.goal-prompt h2{font-size:20px}.goal-card{padding:12px 10px;gap:9px;min-height:78px}.goal-symbol{width:43px;height:43px;flex-basis:43px;font-size:20px}.goal-card-main b{font-size:12px}.goal-percent{font-size:11px}.goal-card .btn-sm{padding:8px 9px;font-size:10px}.goal-grid,.resource-grid,.stats-hero{grid-template-columns:1fr}.resource-card{padding:15px}.resource-card p{min-height:0}.timer-ring{width:224px;height:224px}.timer-inner strong{font-size:42px}.bottom-nav .nav-btn{font-size:9px}}
 
+
+/* MAQSAD AI tutor */
+#maqsad-ai-launch{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom));z-index:1200;border:1px solid #9c78ff;border-radius:999px;padding:13px 18px;background:linear-gradient(125deg,#5425d8,#8d36f4);color:#fff;font:800 14px inherit;box-shadow:0 10px 35px #5a2ce966;cursor:pointer}
+#maqsad-ai-panel{position:fixed;right:18px;bottom:calc(82px + env(safe-area-inset-bottom));z-index:1201;width:min(390px,calc(100vw - 28px));height:min(560px,calc(100dvh - 130px));display:none;grid-template-rows:auto 1fr auto;background:#0b1430;border:1px solid #6751b8;border-radius:22px;overflow:hidden;box-shadow:0 24px 80px #020617b8;color:#f6f4ff}
+#maqsad-ai-panel.open{display:grid}
+.maqsad-ai-head{padding:15px 17px;background:linear-gradient(110deg,#27166b,#183c83);display:flex;align-items:center;gap:10px}
+.maqsad-ai-head strong{font-size:15px;flex:1}.maqsad-ai-head small{display:block;color:#c5c7f5;font-size:11px;margin-top:3px}
+#maqsad-ai-close{border:0;background:#ffffff20;color:white;border-radius:10px;padding:8px 11px;font-size:18px}
+#maqsad-ai-messages{overflow:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.maqsad-ai-msg{max-width:90%;padding:11px 13px;border-radius:15px;font-size:13px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.maqsad-ai-msg.bot{align-self:flex-start;background:#19274c;border:1px solid #334776}
+.maqsad-ai-msg.user{align-self:flex-end;background:#6535d8}
+#maqsad-ai-form{display:flex;gap:8px;padding:12px;border-top:1px solid #26365f;background:#101b3a}
+#maqsad-ai-input{flex:1;min-width:0;resize:none;max-height:90px;border:1px solid #405181;border-radius:12px;background:#09132c;color:white;padding:11px;font:inherit;font-size:13px}
+#maqsad-ai-send{border:0;border-radius:12px;padding:0 15px;background:#773df0;color:white;font-weight:800}
+#maqsad-ai-send:disabled{opacity:.5}
+@media(max-width:600px){#maqsad-ai-launch{right:14px;bottom:calc(78px + env(safe-area-inset-bottom));padding:11px 14px}#maqsad-ai-panel{right:8px;bottom:calc(132px + env(safe-area-inset-bottom));width:calc(100vw - 16px);height:min(520px,calc(100dvh - 160px))}}
+
 </style>
 </head>
 <body>
@@ -263,5 +281,14 @@ renderAll();
 <script src="supabase-config.js"></script>
 <script src="maqsad-cloud.js"></script>
 <script src="maqsad-library.js"></script>
+
+<button id="maqsad-ai-launch" type="button" aria-label="AI o‘qituvchini ochish">✦ AI O‘qituvchi</button>
+<section id="maqsad-ai-panel" aria-label="MAQSAD AI o‘qituvchi">
+ <header class="maqsad-ai-head"><div style="font-size:25px">✦</div><div><strong>MAQSAD AI Ustoz</strong><small>O‘zbek tilida tushuntiradi · Savollaringizga javob beradi</small></div><button id="maqsad-ai-close" type="button" aria-label="Yopish">×</button></header>
+ <div id="maqsad-ai-messages" aria-live="polite"><div class="maqsad-ai-msg bot">Assalomu alaykum! Men MAQSAD AI ustoziman. Qaysi mavzuni o‘rganmoqchisiz? Menga savol bering — sodda misollar bilan tushuntiraman.</div></div>
+ <form id="maqsad-ai-form"><textarea id="maqsad-ai-input" rows="1" maxlength="1000" placeholder="Savolingizni yozing…" aria-label="AI ustozga savol"></textarea><button id="maqsad-ai-send" type="submit">Yuborish</button></form>
+</section>
+
+<script src="maqsad-ai.js"></script>
 </body>
 </html>
