@@ -19,6 +19,8 @@ MAQSAD — maqsadlarni rejalashtirish va ularga mos o‘quv materiallarini jamla
 
 ## APK yig‘ish
 
+Sinov APK alohida paket nomi bilan yig‘iladi: `uz.maqsad.app.redesign`.
+
 1. **Actions** bo‘limini oching.
 2. **Build MAQSAD APK** workflow'ini tanlang.
 3. **Run workflow** tugmasini bosing yoki branch push build'ini kuting.
