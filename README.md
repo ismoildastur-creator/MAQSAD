@@ -17,6 +17,16 @@ MAQSAD — maqsadlarni rejalashtirish va ularga mos o‘quv materiallarini jamla
 - Maqsadlar va bajarilgan materiallar shu qurilmada saqlanadi; hisobga kirilgach Supabase bilan sinxronlash mo‘ljallangan.
 - Bosh sahifa, maqsadlar, Focus Mode, kutubxona, statistika va profil ekranlari mavjud.
 
+
+## Admin paneli va MAQSAD kutubxonasi
+
+- Profil bo‘limidagi **Kontent admin paneli** orqali `admin.html` sahifasiga o‘ting.
+- Administrator PDF/kitob fayllari, MP4/WebM video fayllari yoki YouTube video havolalarini joylaydi.
+- E’lon qilingan kitoblar PDF o‘quvchi oynasida, YouTube videolari esa ilova ichidagi video pleerda ochiladi. Ayrim YouTube videolarida muallif embed ko‘rishni cheklagan bo‘lishi mumkin.
+- Fayllar Supabase Storage’dagi maxsus private bucket’da saqlanadi; e’lon qilingan fayllar vaqtinchalik signed URL orqali o‘qiladi.
+- Administrator huquqi `public.maqsad_admins` jadvali va RLS siyosatlari orqali tekshiriladi. Ilova ichiga service-role key kiritilmaydi.
+- Dastlab `supabase/migrations/0004_content_library.sql` migratsiyasini SQL Editor’da ishga tushiring. Keyin admin hisobini ro‘yxatga qo‘shish bo‘yicha `supabase/ADMIN_SETUP.md` ko‘rsatmasini bajaring.
+
 ## APK yig‘ish
 
 Sinov APK alohida paket nomi bilan yig‘iladi: `uz.maqsad.app.redesign`.
