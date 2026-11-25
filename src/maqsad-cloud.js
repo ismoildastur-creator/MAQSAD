@@ -334,9 +334,19 @@ function init() {
   });
   window.addEventListener('maqsad:data-changed', scheduleSync);
 }
+async function askAI(messages) {
+  if (!supabase || !activeUser) throw new Error('AI ustozdan foydalanish uchun avval Profil bo‘limida hisobga kiring.');
+  const { data, error } = await supabase.functions.invoke('maqsad-ai', { body: { messages } });
+  if (error) {
+    const detail = error.context?.json?.error || error.message;
+    throw new Error(detail || 'AI xizmati bilan bog‘lanib bo‘lmadi.');
+  }
+  if (!data?.reply) throw new Error('AI javobi bo‘sh qaytdi.');
+  return data.reply;
+}
 window.maqsadCloud = {
   signUp, signIn, signOut, getUser: () => activeUser,
-  syncNow: () => syncAll(true)
+  syncNow: () => syncAll(true), askAI
 };
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
 else init();
