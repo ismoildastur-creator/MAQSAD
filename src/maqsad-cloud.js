@@ -293,6 +293,16 @@ function scheduleSync() {
   clearTimeout(syncTimer);
   syncTimer = setTimeout(() => syncAll(true), 1100);
 }
+async function updateAdminEntry() {
+  const entry = document.getElementById('admin-entry');
+  if (!entry) return;
+  entry.hidden = true;
+  if (!activeUser || !supabase) return;
+  try {
+    const { data, error } = await supabase.rpc('is_maqsad_admin');
+    entry.hidden = !!error || data !== true;
+  } catch (_) { entry.hidden = true; }
+}
 function init() {
   renderAccount();
   if (!CONFIG.url || !CONFIG.publishableKey) {
@@ -310,6 +320,7 @@ function init() {
   supabase.auth.onAuthStateChange((_event, session) => {
     activeUser = session?.user || null;
     renderAccount();
+    updateAdminEntry();
     if (activeUser) setTimeout(() => syncAll(false), 0);
     else status('Mehmon rejimidasiz. Istasangiz email bilan hisob oching.', 'info');
   });
@@ -317,6 +328,7 @@ function init() {
     if (error) return status(explainError(error), 'error');
     activeUser = data.session?.user || null;
     renderAccount();
+    updateAdminEntry();
     if (activeUser) syncAll(false);
     else status('Mehmon bo‘lib foydalanishingiz mumkin. Hisob ochish ixtiyoriy.', 'info');
   });
