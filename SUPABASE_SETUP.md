@@ -1,32 +1,28 @@
 # MAQSAD — Supabase ulash
 
-## 1. Supabase loyihasini yarating
+Ilova hozir ham internet bo‘lmasa mahalliy rejimda ishlaydi. Supabase sozlangach email orqali hisob yaratish/kirish va ayrim ma’lumotlarni bulut bilan sinxronlash yoqiladi.
 
-1. https://supabase.com/dashboard sahifasiga kiring.
-2. **New project** orqali yangi loyiha yarating.
-3. Database parolini xavfsiz joyda saqlang; uni GitHub'ga yoki ilova kodiga yozmang.
-4. Loyiha tayyor bo‘lgach, **Project Settings → API** bo‘limidan Project URL va publishable/anon key qiymatini oling.
+## 1. GitHub Actions Secrets
 
-## 2. Ma’lumotlar bazasini yarating
+Repozitoriyda **Settings → Secrets and variables → Actions → New repository secret** bo‘limini oching va quyidagi ikkita qiymatni qo‘shing:
 
-1. Supabase loyihasida **SQL Editor → New query** ni oching.
-2. Ushbu repodagi `supabase/schema.sql` faylning to‘liq tarkibini joylashtiring.
-3. **Run** tugmasini bosing.
-4. Table Editor bo‘limida `profiles`, `goals`, `tasks`, `focus_sessions`, `user_settings` va `learning_progress` jadvallari yaratilganini tekshiring.
+- `SUPABASE_URL` = `https://cehalvphavswgauofxsq.supabase.co`
+- `SUPABASE_PUBLISHABLE_KEY` = Supabase **Publishable key** (odatda `sb_publishable_` bilan boshlanadi).
 
-Schema foydalanuvchi ma’lumotlarini ajratish uchun Row Level Security (RLS) siyosatlarini yoqadi. Har bir foydalanuvchi faqat o‘z yozuvlarini o‘qishi va o‘zgartirishi mumkin.
+**Secret key** yoki **service_role key** ishlatmang. Kalitlarni kodga joylamang va commit qilmang. Publishable key ilova mijozida ishlatish uchun mo‘ljallangan, lekin foydalanuvchi ma’lumotlarini RLS himoya qilishi shart.
 
-## 3. Ilova konfiguratsiyasi
+## 2. API ruxsatlari migratsiyasi
 
-1. `www/supabase-config.example.js` faylidan nusxa oling.
-2. Nusxani `www/supabase-config.js` nomi bilan saqlang.
-3. `url` va `anonKey` qiymatlarini o‘z Supabase loyihangizdan oling.
-4. `www/supabase-config.js` Git'ga yuborilmasin. U `.gitignore` orqali himoyalanishi kerak.
+Siz allaqachon `0001_initial_schema.sql` va `0002_schema_hardening.sql` migratsiyalarini bajargansiz. Endi Supabase **SQL Editor** ichida ushbu repodagi `supabase/migrations/0003_api_grants.sql` faylini bir marta ishga tushiring.
 
-Faqat publishable/anon key ishlatiladi. **service_role key**, database paroli yoki boshqa maxfiy kalitlarni Android ilovasiga kiritmang.
+Bu migratsiya autentifikatsiyadan o‘tgan foydalanuvchiga o‘z jadval yozuvlari bilan ishlash uchun SQL ruxsatlarini beradi. Mavjud RLS siyosatlari foydalanuvchilarni bir-birining ma’lumotlaridan ajratishda davom etadi.
 
-## 4. Hozirgi ishlab chiqish bosqichi
+## 3. APK build
 
-Ushbu birinchi bosqich ma’lumotlar bazasi sxemasi va xavfsiz konfiguratsiya shablonini tayyorlaydi. Keyingi bosqichda ilovaga email orqali ro‘yxatdan o‘tish/kirish, foydalanuvchi profili, maqsadlar va vazifalarni Supabase bilan sinxronlash qo‘shiladi.
+`Build MAQSAD APK` workflow build vaqtida GitHub Secrets’dan `www/supabase-config.js` faylini yaratadi va Supabase klientini bundle qiladi. Ushbu yaratilgan konfiguratsiya Git’ga yuborilmaydi.
 
-Supabase loyihasi URL va publishable/anon key taqdim etilmaguncha jonli backend ulanishini tekshirib bo‘lmaydi. Bu qiymatlar service_role kaliti emas.
+Secrets qo‘shilmagan bo‘lsa, APK baribir yig‘iladi, lekin faqat mahalliy rejimda ishlaydi. Secrets qo‘shilgach workflow’ni qayta ishga tushiring.
+
+## 4. Hozirgi bulut sinxronizatsiyasi
+
+Ushbu versiya email/parol orqali ro‘yxatdan o‘tish va kirishni, shuningdek boshlang‘ich maqsadlar, kundalik checklist vazifalari hamda kunlik XP/vazifa statistikasini sinxronlashni qo‘llaydi. Demo kurslar/kitoblar va fokus sessiyalari tarixi hozircha bulutga ulanmagan.
