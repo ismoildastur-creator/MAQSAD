@@ -18,6 +18,19 @@ MAQSAD — maqsadlarni rejalashtirish va ularga mos o‘quv materiallarini jamla
 - Bosh sahifa, maqsadlar, Focus Mode, kutubxona, statistika va profil ekranlari mavjud.
 
 
+
+## AI o‘qituvchi
+
+- Ilovada MAQSAD AI chat oynasi mavjud.
+- AI so‘rovlari autentifikatsiyadan o‘tgan foydalanuvchi uchun Supabase Edge Function orqali yuboriladi.
+- OpenAI API kaliti faqat Supabase server secrets ichida saqlanadi; APK yoki frontend kodiga yozilmaydi.
+- Ishga tushirish uchun `supabase/AI_SETUP.md` ko‘rsatmasini bajaring va `maqsad-ai` Edge Function’ni deploy qiling. API kaliti sozlanmaguncha AI javob bera olmaydi.
+- AI xizmati hisobga kirishni talab qiladi; mehmon rejimi ilovaning qolgan funksiyalari uchun saqlanadi.
+
+## O‘rnatishdagi paket ziddiyatini oldini olish
+
+Yangi build uchun `uz.maqsad.app.final2026` package ID ishlatiladi. Bu oldingi `uz.maqsad.app` va `uz.maqsad.app.redesign` ilovalaridan alohida o‘rnatiladi. Kelajakdagi APK yangilanishlari ustidan o‘rnatilishi uchun bir xil imzolash kaliti saqlanishi kerak; hozirgi workflow standart Android debug signing’dan foydalanadi, shuning uchun boshqa build’dan keyin yangilashda imzo mosligi tekshirilishi lozim.
+
 ## Admin paneli va MAQSAD kutubxonasi
 
 - Profil bo‘limidagi **Kontent admin paneli** orqali `admin.html` sahifasiga o‘ting.
