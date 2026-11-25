@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   push:
     branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
 
 permissions:
   contents: read
@@ -42,6 +44,28 @@ jobs:
 
       - name: Install JavaScript dependencies
         run: npm install
+      - name: Build Supabase client bundle
+        run: npm run build
+
+      - name: Generate Supabase client configuration
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const config = {
+            url: process.env.SUPABASE_URL || '',
+            publishableKey: process.env.SUPABASE_PUBLISHABLE_KEY || ''
+          };
+          fs.writeFileSync('www/supabase-config.js',
+            'window.MAQSAD_SUPABASE_CONFIG = ' + JSON.stringify(config) + ';\\n');
+          if (!config.url || !config.publishableKey) {
+            console.log('Supabase secrets are not configured; app will use local-only mode.');
+          } else {
+            console.log('Supabase client configuration generated.');
+          }
+          NODE
 
       - name: Generate Android project
         run: npx cap add android
