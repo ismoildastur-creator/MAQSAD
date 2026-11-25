@@ -59,7 +59,7 @@ jobs:
             publishableKey: process.env.SUPABASE_PUBLISHABLE_KEY || ''
           };
           fs.writeFileSync('www/supabase-config.js',
-            'window.MAQSAD_SUPABASE_CONFIG = ' + JSON.stringify(config) + ';\\n');
+            'window.MAQSAD_SUPABASE_CONFIG = ' + JSON.stringify(config) + ';\n');
           if (!config.url || !config.publishableKey) {
             console.log('Supabase secrets are not configured; app will use local-only mode.');
           } else {
