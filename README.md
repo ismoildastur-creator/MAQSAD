@@ -1,29 +1,38 @@
 # MAQSAD — Android ilova
 
-MAQSAD interaktiv prototipini Android APK sifatida yig‘ish uchun Capacitor loyihasi.
+MAQSAD — maqsadlarni rejalashtirish va ularga mos o‘quv materiallarini jamlash uchun Android ilova.
 
-## GitHub Actions orqali APK yig‘ish (Android Studio kerak emas)
+## Yangi sinov versiyasi
+
+- Android paket ID: `uz.maqsad.app.redesign`.
+- Ilova nomi: `MAQSAD Yangi` (eski MAQSAD bilan birga o‘rnatish uchun alohida test ilovasi).
+
+## Yangi interfeys
+
+- Ilova ochilganda MAQSAD start ekrani ko‘rinadi.
+- **Boshlash** orqali email kiritmasdan mehmon rejimida foydalanish mumkin.
+- **Ilovaga kirish** profil va ixtiyoriy email/parol hisobini ochadi.
+- Foydalanuvchi bir nechta maqsad qo‘shishi mumkin.
+- Har bir maqsad uchun kitob, darslik va video qidiruv havolalari shakllantiriladi.
+- Maqsadlar va bajarilgan materiallar shu qurilmada saqlanadi; hisobga kirilgach Supabase bilan sinxronlash mo‘ljallangan.
+- Bosh sahifa, maqsadlar, Focus Mode, kutubxona, statistika va profil ekranlari mavjud.
+
+## APK yig‘ish
+
+Sinov APK alohida paket nomi bilan yig‘iladi: `uz.maqsad.app.redesign`.
 
 1. **Actions** bo‘limini oching.
 2. **Build MAQSAD APK** workflow'ini tanlang.
-3. **Run workflow** tugmasini bosing.
-4. Jarayon tugagach, natijadagi **Artifacts** qismidan `MAQSAD-debug-apk` faylini yuklab oling.
-5. ZIP arxivini ochib, `app-debug.apk` faylini Android telefoningizga o‘rnating. O‘rnatishda telefonda noma’lum manbalardan ilova o‘rnatishga ruxsat so‘ralishi mumkin.
+3. **Run workflow** tugmasini bosing yoki branch push build'ini kuting.
+4. Build tugagach **Artifacts** ichidan `MAQSAD-debug-apk` faylini yuklab oling.
+5. ZIP arxivini ochib, `app-debug.apk` faylini Android telefoningizga o‘rnating.
 
-Workflow `main` yoki `master` branch'iga yangi commit yuborilganda ham avtomatik ishga tushadi.
+## Texnologiyalar
 
-## Loyiha haqida
+- Capacitor 7, HTML/CSS/JavaScript
+- Supabase Auth va Postgres
+- Android debug APK
 
-- Ilova nomi: **MAQSAD**
-- Android application ID: `uz.maqsad.app`
-- Web interfeys: `www/index.html`
-- Texnologiya: Capacitor 7
-- Build muhiti: Node.js 20, JDK 17, GitHub Actions Android SDK
+## Eslatma
 
-## Hozirgi prototip chegaralari
-
-Maqsadlar, vazifalar va XP ma’lumotlari qurilmaning `localStorage` xotirasida saqlanadi. Pomodoro taymeri ilova ochiq turganda ishlaydi. Kutubxonadagi video va kitoblar hozircha demo kontent; haqiqiy video/PDF/EPUB, akkaunt va bulutli sinxronlash, Android bildirishnomalari hamda boshqa ilovalarni bloklash hali ishlab chiqilmagan.
-
-## Release
-
-Hozirgi workflow sinov va shaxsiy o‘rnatish uchun **debug APK** yaratadi. Google Play uchun keyinchalik imzolangan release APK/AAB va signing secrets sozlanishi kerak.
+Maqsadga mos materiallar hozircha ishonchli platformalarning qidiruv sahifalari va bepul resurslariga havolalar shaklida tavsiya qilinadi. Ilova hali AI orqali shaxsiy dars mazmunini avtomatik yaratmaydi; bunday imkoniyat keyingi bosqichda alohida AI backend bilan qo‘shilishi mumkin.
