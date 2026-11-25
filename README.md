@@ -2,6 +2,11 @@
 
 MAQSAD — maqsadlarni rejalashtirish va ularga mos o‘quv materiallarini jamlash uchun Android ilova.
 
+## Yangi sinov versiyasi
+
+- Android paket ID: `uz.maqsad.app.redesign`.
+- Ilova nomi: `MAQSAD Yangi` (eski MAQSAD bilan birga o‘rnatish uchun alohida test ilovasi).
+
 ## Yangi interfeys
 
 - Ilova ochilganda MAQSAD start ekrani ko‘rinadi.
