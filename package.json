@@ -4,7 +4,7 @@
   "private": true,
   "description": "MAQSAD — shaxsiy maqsad va fokus ilovasi",
   "scripts": {
-    "build": "esbuild src/maqsad-cloud.js --bundle --format=iife --target=es2020 --outfile=www/maqsad-cloud.js",
+    "build": "esbuild src/maqsad-cloud.js --bundle --format=iife --target=es2020 --outfile=www/maqsad-cloud.js && esbuild src/maqsad-admin.js --bundle --format=iife --target=es2020 --outfile=www/maqsad-admin.js && esbuild src/maqsad-library.js --bundle --format=iife --target=es2020 --outfile=www/maqsad-library.js && esbuild src/maqsad-ai.js --bundle --format=iife --target=es2020 --outfile=www/maqsad-ai.js",
     "android:add": "npx cap add android",
     "android:sync": "npx cap sync android",
     "android:open": "npx cap open android"
