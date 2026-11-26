@@ -67,6 +67,90 @@ body{background:radial-gradient(ellipse at 50% -12%,#293b91 0,#0b1438 42%,#060a1
 #maqsad-ai-send:disabled{opacity:.5}
 @media(max-width:600px){#maqsad-ai-launch{right:14px;bottom:calc(78px + env(safe-area-inset-bottom));padding:11px 14px}#maqsad-ai-panel{right:8px;bottom:calc(132px + env(safe-area-inset-bottom));width:calc(100vw - 16px);height:min(520px,calc(100dvh - 160px))}}
 
+
+/* MAQSAD reference design v2 — mobile-first neon learning dashboard */
+:root{--bg:#070b22;--panel:#101936;--panel2:#18234b;--line:#2d3b70;--purple:#7542ff;--purple2:#a66bff;--cyan:#20d6df;--pink:#f47bd2;--white:#f7f8ff}
+body{background:radial-gradient(ellipse at 50% -12%,#293b91 0,#0b1438 42%,#060a1e 100%)}
+.app-shell{max-width:1180px;padding:18px 20px 34px}
+.brand{font-size:25px;letter-spacing:1.5px}.brand-icon{width:42px;height:42px;border-radius:15px;box-shadow:0 0 25px #7844ff66}
+.sidebar,.main-panel{background:linear-gradient(160deg,#111b3cfa,#0a122df5);border-color:#33447c;box-shadow:0 18px 52px #020719aa}
+.sidebar{padding:20px;min-height:780px}.main-panel{min-height:780px;padding:28px}
+.nav-btn{padding:13px 14px;border-radius:15px;font-size:14px}
+.page-heading h1{font-size:30px;letter-spacing:-.5px}
+.tile,.card{border-radius:20px;padding:19px;background:linear-gradient(145deg,#1b2855,#101a38);border-color:#334579;box-shadow:0 9px 26px #02071935}
+.tile strong{font-size:29px}.goal-ring-card{min-height:205px;padding:22px}
+.progress-ring{width:146px;height:146px;flex-basis:146px;box-shadow:0 0 28px #18d6de22}
+.ring-inner b{font-size:30px}.mini-stat{padding:12px 14px;border-radius:15px}
+.focus-banner{padding:20px 22px;border-radius:20px;min-height:94px}
+.focus-banner b{font-size:18px}.focus-banner .banner-icon{width:52px;height:52px}
+.section-row h2{font-size:19px}.goal-prompt{padding:21px}.goal-prompt h2{font-size:23px}
+.text-input,.select-input{padding:15px 16px}.primary-btn{padding:16px 22px}
+.goal-card{padding:16px;border-radius:18px;min-height:88px}
+.goal-symbol{width:54px;height:54px;flex-basis:54px;border-radius:17px;font-size:25px}
+.goal-card-main b{font-size:15px}.bar{height:8px}
+.resource-card{padding:17px;border-radius:19px;background:linear-gradient(145deg,#1b2855,#101a38);border-color:#35477b;box-shadow:0 8px 22px #02071933}
+.resource-icon{width:48px;height:48px;border-radius:15px;font-size:23px}
+.resource-card h3{font-size:16px}.resource-card p{font-size:12px;line-height:1.55}
+.resource-actions a,.resource-actions button{font-size:11px;padding:10px 13px;border-radius:11px}
+.timer-ring{width:270px;height:270px;box-shadow:0 0 38px #7844ff22}
+.timer-inner strong{font-size:52px}
+.detail-hero{border-radius:22px;padding:23px;box-shadow:0 14px 35px #07091f66}
+.filter-btn{padding:9px 15px;font-size:12px}
+.welcome-screen{background:linear-gradient(180deg,#09133f 0%,#202b78 45%,#10183d 100%)}
+.welcome-screen:before{background:radial-gradient(ellipse at 50% 65%,#ffa6d455 0,#7358cf2b 34%,transparent 68%)}
+.welcome-content{padding-top:clamp(35px,8vh,95px);padding-bottom:clamp(35px,8vh,95px)}
+.target-mark{width:104px;height:104px;margin-bottom:8px}
+.welcome-title{font-size:clamp(38px,10vw,54px);letter-spacing:1px}
+.welcome-tagline{font-size:16px;line-height:1.5;margin:14px 0 26px;max-width:245px}
+.welcome-actions{width:min(300px,88%)}
+.primary-btn{border-radius:22px;background:linear-gradient(105deg,#6931ff,#a33dff);box-shadow:0 9px 28px #7c32ff80,inset 0 1px #ffffff66}
+.text-btn{font-size:13px}
+@media(max-width:860px){
+ .app-shell{padding:10px 10px calc(100px + env(safe-area-inset-bottom))}
+ .app-layout{grid-template-columns:1fr}.sidebar{display:none}
+ .main-panel{min-height:calc(100dvh - 155px);padding:19px 16px 26px;border-radius:23px}
+ .bottom-nav{display:flex;position:fixed;z-index:30;left:0;right:0;bottom:0;padding:7px 4px calc(7px + env(safe-area-inset-bottom));background:#080f2af5;border-top:1px solid #344579;justify-content:space-around;backdrop-filter:blur(18px)}
+ .bottom-nav .nav-btn{display:grid;justify-items:center;gap:1px;padding:6px 7px;min-width:55px;font-size:9px;text-align:center}
+ .bottom-nav .nav-icon{font-size:18px}
+ .topbar{margin-bottom:12px}.brand{font-size:20px}.brand-icon{width:34px;height:34px}
+ .page-heading h1{font-size:24px}
+ .stats-grid{gap:8px}.tile{padding:12px}.tile strong{font-size:21px}
+ .home-overview{grid-template-columns:1fr 1fr;gap:9px}
+ .goal-ring-card{display:grid;justify-items:center;text-align:center;gap:10px;padding:12px 8px}
+ .progress-ring{width:108px;height:108px;flex-basis:108px}.progress-ring:before{inset:8px}.ring-inner b{font-size:23px}
+ .streak-stack{width:100%;grid-template-columns:1fr 1fr;gap:6px}
+ .mini-stat{justify-content:center;padding:8px 5px;gap:5px}.mini-stat span:first-child{font-size:15px}.mini-stat b{font-size:13px}.mini-stat small{font-size:9px}
+ .focus-banner{padding:14px;border-radius:17px}.focus-banner b{font-size:14px}.focus-banner .banner-icon{width:40px;height:40px}
+ .section-row h2{font-size:15px}
+ .goal-entry{display:grid}.goal-entry .primary-btn{width:100%}
+ .resource-grid{grid-template-columns:1fr 1fr;gap:9px}
+ .resource-card{padding:12px}.resource-card h3{font-size:13px}.resource-card p{font-size:10px;min-height:40px}
+ .timer-ring{width:min(270px,70vw);height:min(270px,70vw)}.timer-inner strong{font-size:45px}
+ .stats-hero{grid-template-columns:1fr 1fr}
+}
+@media(max-width:540px){
+ .app-shell{padding:8px 8px calc(94px + env(safe-area-inset-bottom))}
+ .main-panel{padding:16px 12px 23px;border-radius:20px}
+ .topbar{padding:2px 4px}.brand{font-size:19px}.mode-chip{font-size:8px;padding:6px 8px}
+ .user-chip{padding:5px 7px;font-size:10px}.avatar-dot{width:22px;height:22px}
+ .page-heading{margin-bottom:14px}.page-heading h1{font-size:22px}
+ .stats-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+ .tile{padding:10px 8px;border-radius:15px}.tile small{font-size:9px}.tile strong{font-size:19px}.tile .tile-foot{font-size:8px}
+ .home-overview{grid-template-columns:1fr 1fr;gap:7px}.goal-ring-card{padding:10px 6px;min-height:170px}
+ .progress-ring{width:96px;height:96px;flex-basis:96px}.ring-inner b{font-size:21px}
+ .streak-stack{gap:5px}.mini-stat{padding:7px 3px;border-radius:10px}.mini-stat span:first-child{display:none}
+ .mini-stat b{font-size:12px}.mini-stat small{font-size:8px}
+ .focus-banner{padding:12px;margin-bottom:12px}.focus-banner small{font-size:9px}
+ .goal-prompt{padding:15px}.goal-prompt h2{font-size:18px}
+ .goal-grid,.stats-hero{grid-template-columns:1fr}
+ .resource-grid{grid-template-columns:1fr}
+ .resource-card{padding:14px}.resource-card h3{font-size:14px}.resource-card p{font-size:11px;min-height:0}
+ .timer-card{padding:18px 12px}.timer-ring{width:224px;height:224px}.timer-inner strong{font-size:40px}
+ .bottom-nav .nav-btn{min-width:0;flex:1;padding:6px 2px;font-size:8px}
+ .welcome-content{padding-top:45px;padding-bottom:55px}.target-mark{width:94px;height:94px}
+ .welcome-title{font-size:40px}.welcome-tagline{font-size:15px;margin-bottom:23px}
+}
+
 </style>
 </head>
 <body>
