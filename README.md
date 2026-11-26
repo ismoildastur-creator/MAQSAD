@@ -26,7 +26,7 @@ GitHub Actions build konfiguratsiyasida quyidagi Actions secrets bo‘lishi kera
 - `SUPABASE_URL` — Supabase Project URL.
 - `SUPABASE_PUBLISHABLE_KEY` — Supabase publishable key.
 
-Hech qachon service-role key yoki OpenAI secret’ni Android ilovasiga yoki GitHub’dagi frontend kodiga yozmang.
+Hech qachon service-role key yoki Gemini secret’ni Android ilovasiga yoki GitHub’dagi frontend kodiga yozmang.
 
 ### Ma’lumotlar bazasi
 
@@ -46,11 +46,12 @@ Administrator PDF, MP4/WebM video yoki YouTube havolasini joylashi mumkin. E’l
 
 AI chat interfeysi va Supabase Edge Function kodi mavjud. AI javob berishi uchun alohida server sozlovi talab qilinadi:
 
-1. Supabase Dashboard → Edge Functions → Secrets’da `OPENAI_API_KEY` secret yarating.
+1. Google AI Studio’dan Gemini API kalitini oling; yoshga oid talablar bo‘lsa ota-ona/vasiy yordamida bajaring.
+2. Supabase Dashboard → Edge Functions → Secrets’da `GEMINI_API_KEY` secret yarating.
 2. Supabase CLI orqali `supabase functions deploy maqsad-ai` buyrug‘i bilan funksiyani deploy qiling.
 3. `supabase/AI_SETUP.md` dagi ko‘rsatmalarni bajaring.
 
-AI funksiyasi faqat tizimga kirgan foydalanuvchi uchun ishlaydi. API kalitini chatga yubormang va APK ichiga joylamang. OpenAI API ishlatilishi hisobingizda alohida to‘lov talab qilishi mumkin. Secret va deploy tekshirilmaguncha AI’ni faol deb hisoblamang.
+AI funksiyasi faqat tizimga kirgan foydalanuvchi uchun ishlaydi. API kalitini chatga yubormang va APK ichiga joylamang. Gemini API’da bepul tarif mavjud, ammo limitlangan; bepul tarifdagi ma’lumotlardan Google mahsulotlarini yaxshilash uchun foydalanilishi mumkin. Secret va deploy tekshirilmaguncha AI’ni faol deb hisoblamang.
 
 ## Build va o‘rnatish
 
@@ -69,4 +70,4 @@ Muvaffaqiyatli GitHub Actions build faqat APK yig‘ilganini bildiradi. U Supaba
 - HTML, CSS, JavaScript, esbuild
 - Capacitor 7 / Android
 - Supabase Auth, Postgres, Storage, Edge Functions
-- OpenAI API (server tomonda, alohida sozlangandan keyin)
+- Google Gemini API (server tomonda, alohida sozlangandan keyin)
