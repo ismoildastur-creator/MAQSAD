@@ -1,10 +1,21 @@
 # MAQSAD asosiy admin va adminlarni boshqarish
 
-## 1. Asosiy adminni bir marta belgilang
+Bu sozlama MAQSAD hisoblari va Supabase loyihasini boshqarish huquqiga ega loyiha egasi tomonidan bir marta bajariladi.
 
-1. MAQSAD ilovasida o'zingizning shaxsiy hisobingizni yarating va tizimga kiring.
-2. Supabase Dashboard -> Authentication -> Users bo'limidan aynan shu hisobning UUID qiymatini oling.
-3. SQL Editor'da quyidagi buyruqdagi UUID o'rniga o'zingiznikini qo'ying:
+## 1. Migratsiyalar
+
+Supabase Dashboard → SQL Editor’da quyidagi migratsiyalar tartib bilan bajarilganini tekshiring:
+
+1. `supabase/migrations/0004_content_library.sql`
+2. `supabase/migrations/0005_owner_admin_management.sql`
+
+0005 migratsiyasi 0004 dan keyin bajariladi.
+
+## 2. Asosiy adminni bir marta belgilang
+
+1. MAQSAD ilovasida o‘zingizning shaxsiy hisobingizni yarating va tizimga kiring.
+2. Supabase Dashboard → Authentication → Users bo‘limidan aynan shu MAQSAD hisobining UUID qiymatini oling. Supabase Dashboard’ga kirish emaili bilan MAQSAD ilovasidagi hisob emailini adashtirmang.
+3. SQL Editor’da quyidagi buyruqdagi namunaviy UUID o‘rniga o‘zingizning MAQSAD hisobingiz UUID’sini qo‘ying:
 
 ```sql
 insert into public.maqsad_owner(user_id)
@@ -12,31 +23,20 @@ values ('00000000-0000-0000-0000-000000000000')
 on conflict (user_id) do nothing;
 ```
 
-Bu amal faqat 0005 migratsiyasi bajarilgandan keyin ishlaydi. Asosiy admin ro'yxati alohida jadvalda saqlanadi; oddiy adminlar ushbu jadvalni o'qiy yoki o'zgartira olmaydi.
+Bu amal asosiy adminni belgilaydi. `maqsad_owner` jadvaliga oddiy foydalanuvchi yoki yordamchi admin yozuv qo‘sha olmaydi.
 
-## 2. Boshqa adminni tayinlash
+## 3. Yordamchi adminlarni boshqarish
 
-Faqat asosiy admin quyidagi RPC'ni chaqira oladi:
+1. MAQSAD ilovasida asosiy admin hisobiga kiring.
+2. Admin sahifasini oching.
+3. Foydalanuvchining Supabase Auth UUID’sini kiriting va **Admin tayinlash** tugmasini bosing.
+4. Ro‘yxatda yordamchi adminlar ko‘rinadi. Kerak bo‘lsa **Huquqini bekor qilish** tugmasi bilan adminlikni olib tashlang.
 
-```sql
-select public.maqsad_grant_admin('TARGET-USER-UUID');
-```
+Faqat asosiy admin `maqsad_grant_admin`, `maqsad_revoke_admin` va `maqsad_list_admins` RPC amallarini bajara oladi. Yordamchi admin kontentni boshqaradi, ammo boshqa admin tayinlay olmaydi yoki asosiy admin huquqini o‘zgartira olmaydi.
 
-## 3. Adminlikni bekor qilish
+## Xavfsizlik
 
-```sql
-select public.maqsad_revoke_admin('TARGET-USER-UUID');
-```
-
-## 4. Adminlar ro'yxati
-
-```sql
-select * from public.maqsad_list_admins();
-```
-
-## Muhim xavfsizlik
-
-- Asosiy admin huquqini faqat Supabase SQL Editor kabi ishonchli loyiha egasi muhitidan `maqsad_owner` jadvaliga yozish orqali belgilang.
-- Oddiy foydalanuvchi yoki yordamchi admin hech qachon o'zini asosiy admin qila olmaydi.
-- Hech qachon service-role key'ni APK, frontend yoki GitHub kodiga joylamang.
-- Admin panelda admin ro'yxatini boshqarish interfeysi hali alohida frontend vazifasi; hozircha yuqoridagi SQL/RPC amallari bilan boshqariladi.
+- Asosiy adminni faqat ishonchli Supabase SQL Editor muhitidan belgilang.
+- Service-role key’ni APK, frontend, GitHub kodi yoki chatga joylamang.
+- Admin paneldagi UI yashirilishi yagona himoya emas: ruxsatlar Supabase’dagi RLS va server funksiyalari bilan tekshiriladi.
+- Asosiy admin hisobini yo‘qotmang; uni tiklash loyiha egasining Supabase boshqaruv huquqini talab qiladi.
