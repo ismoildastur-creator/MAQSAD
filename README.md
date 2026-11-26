@@ -48,8 +48,8 @@ AI chat interfeysi va Supabase Edge Function kodi mavjud. AI javob berishi uchun
 
 1. Google AI Studio’dan Gemini API kalitini oling; yoshga oid talablar bo‘lsa ota-ona/vasiy yordamida bajaring.
 2. Supabase Dashboard → Edge Functions → Secrets’da `GEMINI_API_KEY` secret yarating.
-2. Supabase CLI orqali `supabase functions deploy maqsad-ai` buyrug‘i bilan funksiyani deploy qiling.
-3. `supabase/AI_SETUP.md` dagi ko‘rsatmalarni bajaring.
+3. Supabase CLI orqali `supabase functions deploy maqsad-ai` buyrug‘i bilan funksiyani deploy qiling.
+4. `supabase/AI_SETUP.md` dagi ko‘rsatmalarni bajaring.
 
 AI funksiyasi faqat tizimga kirgan foydalanuvchi uchun ishlaydi. API kalitini chatga yubormang va APK ichiga joylamang. Gemini API’da bepul tarif mavjud, ammo limitlangan; bepul tarifdagi ma’lumotlardan Google mahsulotlarini yaxshilash uchun foydalanilishi mumkin. Secret va deploy tekshirilmaguncha AI’ni faol deb hisoblamang.
 
